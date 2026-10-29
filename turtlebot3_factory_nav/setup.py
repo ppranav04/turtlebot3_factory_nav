@@ -15,7 +15,8 @@ setup(
     zip_safe=True,
     maintainer='P Pranav',
     maintainer_email='pranavrobotics.eng@gmail.com',
-    description='Station simulator and FIFO pickup dispatcher for TurtleBot3 factory navigation using Nav2.',
+    description='Station simulator and FIFO pickup dispatcher for '
+                'TurtleBot3 factory navigation using Nav2.',
     license='Apache-2.0',
     extras_require={
         'test': [
@@ -24,6 +25,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
+            'cart_patrol = turtlebot3_factory_nav.cart_patrol:main'
         ],
     },
 )

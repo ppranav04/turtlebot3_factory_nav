@@ -18,6 +18,9 @@ def generate_launch_description():
 
     rviz_config = os.path.join(bringup_dir, 'rviz', 'factory.rviz')
 
+    cart_sdf = os.path.join(bringup_dir, 'worlds', 'cart.sdf')
+    cart_x = 1.28
+
     world = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(bringup_dir, 'launch', 'world.launch.py')))
@@ -38,8 +41,24 @@ def generate_launch_description():
         parameters=[{'use_sim_time': True}],
         output='screen')
 
+    spawn_cart = Node(
+        package='ros_gz_sim',
+        executable='create',
+        arguments=['-world', 'factory_floor', '-name', 'cart',
+                   '-file', cart_sdf, '-x', str(cart_x), '-y', '1.1', '-z', '0.0'],
+        output='screen')
+
+    cart_patrol = Node(
+        package='turtlebot3_factory_nav',
+        executable='cart_patrol',
+        parameters=[{'use_sim_time': True, 'x': cart_x}],
+        output='screen'
+    )
+
     return LaunchDescription([
         world,
         nav2,
         rviz,
+        spawn_cart,
+        cart_patrol,
     ])

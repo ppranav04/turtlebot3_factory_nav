@@ -188,6 +188,7 @@ local_costmap:
           topic: /scan
           max_obstacle_height: 2.0
           clearing: true
+          inf_is_valid: true
           marking: true
           data_type: "LaserScan"
       voxel_layer:
@@ -204,6 +205,7 @@ local_costmap:
           topic: /scan
           max_obstacle_height: 2.0
           clearing: true
+          inf_is_valid: true
           marking: true
           data_type: "LaserScan"
           raytrace_max_range: 3.0
@@ -234,6 +236,7 @@ global_costmap:
           topic: /scan
           max_obstacle_height: 2.0
           clearing: true
+          inf_is_valid: true
           marking: true
           data_type: "LaserScan"
           raytrace_max_range: 3.0
@@ -254,6 +257,7 @@ global_costmap:
           topic: /scan
           max_obstacle_height: 2.0
           clearing: true
+          inf_is_valid: true
           marking: true
           data_type: "LaserScan"
           raytrace_max_range: 3.0
