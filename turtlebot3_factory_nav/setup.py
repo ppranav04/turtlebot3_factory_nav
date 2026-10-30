@@ -25,7 +25,9 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'cart_patrol = turtlebot3_factory_nav.cart_patrol:main'
+            'cart_patrol = turtlebot3_factory_nav.cart_patrol:main',
+            'station_sim = turtlebot3_factory_nav.station_sim:main',
+            'task_dispatcher = turtlebot3_factory_nav.task_dispatcher:main',
         ],
     },
 )
