@@ -31,7 +31,6 @@ class StationSim(Node):
             self.create_timer(station['seconds_per_part'],
                               lambda sid=sid: self.on_part(sid))
 
-        self.create_timer(2.0, self.republish)
         self.get_logger().info(
             f'{len(self.fill)} stations, capacity {self.capacity}, file {path}')
 
@@ -55,15 +54,10 @@ class StationSim(Node):
         msg.stamp = self.get_clock().now().to_msg()
         self.pub.publish(msg)
 
-    def republish(self):
-        for sid, count in self.fill.items():
-            if count >= self.capacity:
-                self.request(sid)
-
     def on_done(self, msg):
         if msg.data in self.fill:
             self.fill[msg.data] = 0
-            self.get_logger().info(f'Station {msg.data}: box collected, refilling')
+            self.get_logger().info(f'Station {msg.data}: box collected.')
 
 
 def main(args=None):
