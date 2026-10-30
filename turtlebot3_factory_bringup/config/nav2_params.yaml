@@ -1,6 +1,8 @@
 # Based on turtlebot3_navigation2/param/burger.yaml (ROBOTIS, Apache-2.0).
 # Changed: amcl set_initial_pose; speed limits capped at 0.22 m/s;
 # inflation_radius 0.3 in both costmaps (1 m aisles).
+# capped at 1.0 m/s^2; inf_is_valid true on all scan sources; global costmap
+# updates at 5 Hz so the moving cart is planned around sooner.
 amcl:
   ros__parameters:
     alpha1: 0.2
@@ -219,8 +221,8 @@ local_costmap:
 global_costmap:
   global_costmap:
     ros__parameters:
-      update_frequency: 1.0
-      publish_frequency: 1.0
+      update_frequency: 5.0
+      publish_frequency: 2.0
       global_frame: map
       robot_base_frame: base_link
       transform_tolerance: 0.5
