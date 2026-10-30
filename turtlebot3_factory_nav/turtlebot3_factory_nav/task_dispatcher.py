@@ -5,6 +5,7 @@ import math
 from geometry_msgs.msg import PoseStamped
 from nav2_simple_commander.robot_navigator import BasicNavigator, TaskResult
 import rclpy
+from rclpy.executors import SingleThreadedExecutor
 from rclpy.node import Node
 from ros_gz_interfaces.msg import Entity
 from ros_gz_interfaces.srv import DeleteEntity, SpawnEntity
@@ -178,9 +179,11 @@ def main(args=None):
         make_pose('map', navigator.get_clock().now().to_msg(), x, y, yaw))
     navigator.waitUntilNav2Active()
     node.get_logger().info('Nav2 active, waiting for pickup requests')
+    executor = SingleThreadedExecutor()
+    executor.add_node(node)
     try:
         while rclpy.ok():
-            rclpy.spin_once(node, timeout_sec=0.1)
+            executor.spin_once(timeout_sec=0.1)
             node.poll_nav()
     except KeyboardInterrupt:
         pass

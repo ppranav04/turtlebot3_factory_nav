@@ -21,6 +21,8 @@ class StationSim(Node):
 
         self.capacity = config['capacity']
         self.fill = {sid: 0 for sid in config['stations']}
+        self.max_fills = config.get('fills_per_station', 0)
+        self.fills = {sid: 0 for sid in config['stations']}
 
         self.pub = self.create_publisher(PickupRequest, 'pickup_request', 10)
         self.create_subscription(String, 'station_done', self.on_done, 10)
@@ -34,11 +36,14 @@ class StationSim(Node):
             f'{len(self.fill)} stations, capacity {self.capacity}, file {path}')
 
     def on_part(self, sid):
+        if self.max_fills and self.fills[sid] >= self.max_fills:
+            return
         if self.fill[sid] >= self.capacity:
             return
         self.fill[sid] += 1
         self.get_logger().debug(f'Station {sid}: {self.fill[sid]}/{self.capacity}')
         if self.fill[sid] == self.capacity:
+            self.fills[sid] += 1
             self.get_logger().info(f'Station {sid}: box full, requesting pickup')
             self.request(sid)
 
