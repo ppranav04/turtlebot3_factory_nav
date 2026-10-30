@@ -1,22 +1,22 @@
 <?xml version="1.0"?>
-<!-- Pallet cart, 0.4 (x) x 0.6 (y) x 0.3 m. Static; moved by cart_patrol via set_pose. -->
+<!-- Pallet cart, 0.4 (x) x 0.6 (y) x 0.25 m. Static; moved by cart_patrol via set_pose. -->
 <sdf version="1.9">
     <model name="cart">
         <static>true</static>
         <link name="link">
             <collision name="collision">
-                <pose>0 0 0.15 0 0 0</pose>
+                <pose>0 0 0.125 0 0 0</pose>
                 <geometry>
                     <box>
-                        <size>0.4 0.6 0.3</size>
+                        <size>0.4 0.6 0.25</size>
                     </box>
                 </geometry>
             </collision>
             <visual name="visual">
-                <pose>0 0 0.15 0 0 0</pose>
+                <pose>0 0 0.125 0 0 0</pose>
                 <geometry>
                     <box>
-                        <size>0.4 0.6 0.3</size>
+                        <size>0.4 0.6 0.25</size>
                     </box>
                 </geometry>
                 <material>

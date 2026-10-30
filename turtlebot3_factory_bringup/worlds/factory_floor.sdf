@@ -52,18 +52,18 @@
 <link name="link">
     <!-- north wall -->
     <collision name="north_col">
-        <pose>3.0 2.35 0.25 0 0 0</pose>
+        <pose>3.0 2.35 0.125 0 0 0</pose>
         <geometry>
             <box>
-                <size>7.2 0.1 0.5</size>
+                <size>7.2 0.1 0.25</size>
             </box>
         </geometry>
     </collision>
     <visual name="north_vis">
-        <pose>3.0 2.35 0.25 0 0 0</pose>
+        <pose>3.0 2.35 0.125 0 0 0</pose>
         <geometry>
             <box>
-                <size> 7.2 0.1 0.5</size>
+                <size> 7.2 0.1 0.25</size>
             </box>
         </geometry>
         <material>
@@ -73,18 +73,18 @@
     </visual>
     <!-- south wall -->
     <collision name="south_col">
-        <pose>3.0 -2.35 0.25 0 0 0</pose>
+        <pose>3.0 -2.35 0.125 0 0 0</pose>
         <geometry>
             <box>
-                <size>7.2 0.1 0.5</size>
+                <size>7.2 0.1 0.25</size>
             </box>
         </geometry>
         </collision>
         <visual name="south_vis">
-            <pose>3.0 -2.35 0.25 0 0 0</pose>
+            <pose>3.0 -2.35 0.125 0 0 0</pose>
             <geometry>
                 <box>
-                    <size>7.2 0.1 0.5</size>
+                    <size>7.2 0.1 0.25</size>
                 </box>
             </geometry>
         <material>
@@ -94,18 +94,18 @@
     </visual>
     <!-- west wall (dock / storage end) -->
     <collision name="west_col">
-        <pose>-0.55 0 0.25 0 0 0</pose>
+        <pose>-0.55 0 0.125 0 0 0</pose>
         <geometry>
             <box>
-                <size>0.1 4.6 0.5</size>
+                <size>0.1 4.6 0.25</size>
             </box>
         </geometry>
     </collision>
     <visual name="west_vis">
-        <pose>-0.55 0 0.25 0 0 0</pose>
+        <pose>-0.55 0 0.125 0 0 0</pose>
         <geometry>
             <box>
-                <size>0.1 4.6 0.5</size>
+                <size>0.1 4.6 0.25</size>
             </box>
         </geometry>
         <material>
@@ -115,18 +115,18 @@
     </visual>
     <!-- east wall (machine end) -->
     <collision name="east_col">
-        <pose>6.55 0 0.25 0 0 0</pose>
+        <pose>6.55 0 0.125 0 0 0</pose>
         <geometry>
             <box>
-                <size>0.1 4.6 0.5</size>
+                <size>0.1 4.6 0.25</size>
             </box>
         </geometry>
     </collision>
     <visual name="east_vis">
-        <pose>6.55 0 0.25 0 0 0</pose>
+        <pose>6.55 0 0.125 0 0 0</pose>
         <geometry>
             <box>
-                <size>0.1 4.6 0.5</size>
+                <size>0.1 4.6 0.25</size>
             </box>
         </geometry>
         <material>
@@ -143,18 +143,18 @@
     <link name="link">
         <!-- north rack segment between CNC A and CNC B -->
         <collision name="north_rack_col">
-            <pose>3.0 1.95 0.25 0 0 0</pose>
+            <pose>3.0 1.95 0.125 0 0 0</pose>
             <geometry>
                 <box>
-                    <size>1.2 0.7 0.5</size>
+                    <size>1.2 0.7 0.25</size>
                 </box>
             </geometry>
         </collision>
         <visual name="north_rack_vis">
-            <pose>3.0 1.95 0.25 0 0 0</pose>
+            <pose>3.0 1.95 0.125 0 0 0</pose>
             <geometry>
                 <box>
-                    <size>1.2 0.7 0.5</size>
+                    <size>1.2 0.7 0.25</size>
                 </box>
             </geometry>
             <material>
@@ -164,18 +164,18 @@
         </visual>
         <!-- central rack: y -0.6 to 0.6, splits the two aisles -->
         <collision name="central_rack_col">
-            <pose>3.0 0 0.25 0 0 0</pose>
+            <pose>3.0 0 0.125 0 0 0</pose>
             <geometry>
                 <box>
-                    <size>3.0 1.2 0.5</size>
+                    <size>3.0 1.2 0.25</size>
                 </box>
             </geometry>
         </collision>
         <visual name="central_rack_vis">
-            <pose>3.0 0 0.25 0 0 0</pose>
+            <pose>3.0 0 0.125 0 0 0</pose>
             <geometry>
                 <box>
-                    <size>3.0 1.2 0.5</size>
+                    <size>3.0 1.2 0.25</size>
                 </box>
             </geometry>
             <material>
@@ -185,18 +185,18 @@
         </visual>
         <!-- south rack segment between CNC D and CNC C -->
         <collision name="south_rack_col">
-            <pose>3.0 -1.95 0.25 0 0 0</pose>
+            <pose>3.0 -1.95 0.125 0 0 0</pose>
             <geometry>
                 <box>
-                    <size>1.2 0.7 0.5</size>
+                    <size>1.2 0.7 0.25</size>
                 </box>
             </geometry>
         </collision>
         <visual name="south_rack_vis">
-            <pose>3.0 -1.95 0.25 0 0 0</pose>
+            <pose>3.0 -1.95 0.125 0 0 0</pose>
             <geometry>
                 <box>
-                    <size>1.2 0.7 0.5</size>
+                    <size>1.2 0.7 0.25</size>
                 </box>
             </geometry>
             <material>
@@ -228,19 +228,19 @@
 
 <model name="storage_rack">
     <static>true</static>
-     <pose>6.3 0 0.15 0 0 0</pose>
+     <pose>6.3 0 0.125 0 0 0</pose>
     <link name="link">
         <collision name="collision">
             <geometry>
                 <box>
-                    <size>0.4 1.0 0.3</size>
+                    <size>0.4 1.0 0.25</size>
                 </box>
             </geometry>
         </collision>
         <visual name="visual">
             <geometry>
                 <box>
-                    <size>0.4 1.0 0.3</size>
+                    <size>0.4 1.0 0.25</size>
                 </box>
             </geometry>
             <material>
@@ -256,18 +256,18 @@
     <link name="link">
         <!-- P1: south-west of CNC D -->
         <collision name="p1_col">
-            <pose>0.2 -1.5 0.25 0 0 0</pose>
+            <pose>0.2 -1.5 0.125 0 0 0</pose>
             <geometry>
                 <box>
-                    <size>0.25 0.25 0.5</size>
+                    <size>0.25 0.25 0.25</size>
                 </box>
             </geometry>
         </collision>
         <visual name="p1_vis">
-            <pose>0.2 -1.5 0.25 0 0 0</pose>
+            <pose>0.2 -1.5 0.125 0 0 0</pose>
             <geometry>
                 <box>
-                    <size>0.25 0.25 0.5</size>
+                    <size>0.25 0.25 0.25</size>
                 </box>
             </geometry>
             <material>
@@ -277,18 +277,18 @@
         </visual>
         <!-- P2: east zone, beside the south aisle exit -->
         <collision name="p2_col">
-            <pose>4.75 -0.75 0.25 0 0 0</pose>
+            <pose>4.75 -0.75 0.125 0 0 0</pose>
             <geometry>
                 <box>
-                    <size>0.25 0.25 0.5</size>
+                    <size>0.25 0.25 0.25</size>
                 </box>
             </geometry>
         </collision>
         <visual name="p2_vis">
-            <pose>4.75 -0.75 0.25 0 0 0</pose>
+            <pose>4.75 -0.75 0.125 0 0 0</pose>
             <geometry>
                 <box>
-                    <size>0.25 0.25 0.5</size>
+                    <size>0.25 0.25 0.25</size>
                 </box>
             </geometry>
             <material>
@@ -301,19 +301,19 @@
 
 <model name="cnc_a">
     <static>true</static>
-    <pose>1.95 1.95 0.25 0 0 0</pose>
+    <pose>1.95 1.95 0.125 0 0 0</pose>
     <link name="link">
         <collision name="collision">
         <geometry>
             <box>
-                <size>0.9 0.7 0.5</size>
+                <size>0.9 0.7 0.25</size>
             </box>
         </geometry>
         </collision>
         <visual name="visual">
             <geometry>
                 <box>
-                    <size>0.9 0.7 0.5</size>
+                    <size>0.9 0.7 0.25</size>
                 </box>
             </geometry>
             <material>
@@ -326,7 +326,7 @@
 
 <model name="bin_a">
     <static>true</static>
-    <pose>1.95 1.775 0.575 0 0 0</pose>
+    <pose>1.95 1.775 0.325 0 0 0</pose>
     <link name="link">
         <collision name="collision">
             <geometry>
@@ -351,19 +351,19 @@
 
 <model name="cnc_b">
     <static>true</static>
-    <pose>4.05 1.95 0.25 0 0 0</pose>
+    <pose>4.05 1.95 0.125 0 0 0</pose>
     <link name="link">
         <collision name="collision">
             <geometry>
                 <box>
-                    <size>0.9 0.7 0.5</size>
+                    <size>0.9 0.7 0.25</size>
                 </box>
             </geometry>
         </collision>
         <visual name="visual">
             <geometry>
                 <box>
-                    <size>0.9 0.7 0.5</size>
+                    <size>0.9 0.7 0.25</size>
                 </box>
             </geometry>
             <material>
@@ -376,7 +376,7 @@
 
 <model name="bin_b">
     <static>true</static>
-    <pose>4.05 1.775 0.575 0 0 0</pose>
+    <pose>4.05 1.775 0.325 0 0 0</pose>
     <link name="link">
         <collision name="name">
             <geometry>
@@ -401,19 +401,19 @@
 
 <model name="cnc_c">
     <static>true</static>
-    <pose>4.05 -1.95 0.25 0 0 0</pose>
+    <pose>4.05 -1.95 0.125 0 0 0</pose>
     <link name = "link">
         <collision name="collision">
             <geometry>
                 <box>
-                    <size>0.9 0.7 0.5</size>
+                    <size>0.9 0.7 0.25</size>
                 </box>
             </geometry>
         </collision>
         <visual name="visual">
             <geometry>
                 <box>
-                    <size>0.9 0.7 0.5</size>
+                    <size>0.9 0.7 0.25</size>
                 </box>
             </geometry>
             <material>
@@ -426,7 +426,7 @@
 
 <model name="bin_c">
     <static>true</static>
-    <pose>4.05 -1.775 0.575 0 0 0</pose>
+    <pose>4.05 -1.775 0.325 0 0 0</pose>
     <link name="link">
         <collision name="name">
             <geometry>
@@ -451,19 +451,19 @@
 
 <model name="cnc_d">
     <static>true</static>
-    <pose>1.95 -1.95 0.25 0 0 0</pose>
+    <pose>1.95 -1.95 0.125 0 0 0</pose>
     <link name = "link">
         <collision name="collision">
             <geometry>
                 <box>
-                    <size>0.9 0.7 0.5</size>
+                    <size>0.9 0.7 0.25</size>
                 </box>
             </geometry>
         </collision>
         <visual name="visual">
             <geometry>
                 <box>
-                    <size>0.9 0.7 0.5</size>
+                    <size>0.9 0.7 0.25</size>
                 </box>
             </geometry>
             <material>
@@ -476,7 +476,7 @@
 
 <model name="bin_d">
     <static>true</static>
-    <pose>1.95 -1.775 0.575 0 0 0</pose>
+    <pose>1.95 -1.775 0.325 0 0 0</pose>
     <link name="link">
         <collision name="name">
             <geometry>
