@@ -23,14 +23,14 @@ BOX_SDF = """<?xml version="1.0"?>
         <collision name="c">
             <geometry>
                 <box>
-                    <size>0.25 0.25 0.15</size>
+                    <size>0.2 0.2 0.15</size>
                 </box>
             </geometry>
         </collision>
         <visual name="v">
             <geometry>
                 <box>
-                    <size>0.25 0.25 0.15</size>
+                    <size>0.2 0.2 0.15</size>
                 </box>
             </geometry>
             <material>
@@ -42,8 +42,6 @@ BOX_SDF = """<?xml version="1.0"?>
     </model>
 </sdf>
 """
-
-FULL_COLOR = '0.2 0.4 0.9 1'
 
 
 def make_pose(frame_id, stamp, x, y, yaw):
@@ -116,7 +114,8 @@ class TaskDispatcher(Node):
         elif action.kind == SPAWN_BOX:
             self.stored += 1
             x, y, z = self.config['stations'][action.arg]['slot']
-            self.spawn_box(f'stored_{self.stored}', x, y, z, FULL_COLOR)
+            color = self.config['stations'][action.arg]['color']
+            self.spawn_box(f'stored_{self.stored}', x, y, z, color)
         elif action.kind == STATION_DONE:
             self.done_pub.publish(String(data=action.arg))
 
