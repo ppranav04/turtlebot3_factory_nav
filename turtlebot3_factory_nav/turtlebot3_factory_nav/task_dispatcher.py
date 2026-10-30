@@ -44,7 +44,6 @@ BOX_SDF = """<?xml version="1.0"?>
 """
 
 FULL_COLOR = '0.2 0.4 0.9 1'
-EMPTY_COLOR = '0.6 0.6 0.6 1'
 
 
 def make_pose(frame_id, stamp, x, y, yaw):
@@ -119,8 +118,6 @@ class TaskDispatcher(Node):
             x, y, z = self.config['stations'][action.arg]['slot']
             self.spawn_box(f'stored_{self.stored}', x, y, z, FULL_COLOR)
         elif action.kind == STATION_DONE:
-            x, y, z = self.config['stations'][action.arg]['bin']
-            self.spawn_box(f'bin_{action.arg.lower()}', x, y, z, EMPTY_COLOR)
             self.done_pub.publish(String(data=action.arg))
 
     def navigate(self, target):
