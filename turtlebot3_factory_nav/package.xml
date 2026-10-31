@@ -13,6 +13,7 @@
   <depend>ros_gz_interfaces</depend>
   <depend>turtlebot3_factory_interfaces</depend>
   <depend>std_msgs</depend>
+  <depend>tf2_ros</depend>
 
   <exec_depend>ament_index_python</exec_depend>
   <exec_depend>python3-yaml</exec_depend>
