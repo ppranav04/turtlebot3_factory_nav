@@ -1,7 +1,7 @@
 # TurtleBot3 Factory Autonomous Navigation
 Autonomous navigation of a TurtleBot3 Burger in Gazebo Harmonic with the ROS 2 Jazzy Nav2 stack. The robot drives to a sequence of goals on a pre-built map while avoiding static obstacles (racks, machines, pillars) and a moving pallet cart.
 
-This project is modelled after material-movement task like the one shown in Antropi
+This project is modelled after a material-movement task like the one shown in Antropi
 Robotics' video: a mobile robot collects full finished-parts boxes from CNC
 machines and takes them to a storage rack, so the machines don't wait.
 
@@ -74,6 +74,15 @@ Terminal 2: Once RViz shows the map and Terminal 1 logs "Managed nodes are activ
 ```bash
 source /opt/ros/jazzy/setup.bash && source ~/factory_ws/install/setup.bash
 ros2 launch turtlebot3_factory_bringup workflow.launch.py
+```
+
+## Run with Docker (Linux, X11)
+Needs Docker with Compose and, for the GPU, the NVIDIA Container Toolkit.
+```bash
+git clone https://github.com/ppranav04/turtlebot3_factory_nav.git
+cd turtlebot3_factory_nav
+xhost +local:docker
+docker compose up --build
 ```
 
 ## Challenges and fixes
