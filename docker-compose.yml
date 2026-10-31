@@ -1,0 +1,28 @@
+services:
+  sim:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    image: turtlebot3_factory_nav
+    network_mode: host
+    ipc: host
+    environment:
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+      - NVIDIA_DRIVER_CAPABILITIES=all
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+  workflow:
+    image: turtlebot3_factory_nav
+    network_mode: host
+    ipc: host
+    depends_on: [sim]
+    command: ros2 launch turtlebot3_factory_bringup workflow.launch.py

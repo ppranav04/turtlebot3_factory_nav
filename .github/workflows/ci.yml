@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build-test:
+    runs-on: ubuntu-24.04
+    container: ros:jazzy
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: src/turtlebot3_factory_nav
+
+      - name: Install dependencies
+        run: |
+          apt-get update
+          apt-get install -y libxml2-utils
+          rosdep update
+          rosdep install --from-paths src --ignore-src -r -y \
+            --dependency-types build --dependency-types buildtool \
+            --dependency-types build_export --dependency-types buildtool_export \
+            --dependency-types test
+
+      - name: Build
+        run: |
+          source /opt/ros/jazzy/setup.bash
+          colcon build
+
+      - name: Test
+        run: |
+          source /opt/ros/jazzy/setup.bash
+          colcon test
+          colcon test-result --verbose
+
+      - name: Validate XML
+        run: |
+          cd src/turtlebot3_factory_nav
+          xmllint --noout */package.xml \
+            turtlebot3_factory_bringup/worlds/*.sdf \
+            turtlebot3_factory_bringup/config/*.xml
