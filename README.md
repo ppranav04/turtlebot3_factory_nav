@@ -10,6 +10,21 @@ dock when the queue is empty. A pallet cart moves through the area as a dynamic
 obstacle. Pickup is simulated: the box is removed from the machine and spawned
 on the storage rack in Gazebo.
 
+## Demo
+[![Demo video](https://img.youtube.com/vi/DCC3VNYN0Us/maxresdefault.jpg)](https://youtu.be/DCC3VNYN0Us)
+
+Gazebo and RViz. Watch in 1080p. Long drives are sped up and labelled in the video.
+## World layout
+
+<p align="center">
+  <img src="media/factory_layout.png" alt="Factory floor in Gazebo, top view" width="450">
+</p>
+
+- Dock (robot start) at the bottom, storage deck at the top
+- Four CNC machines A–D along two 1 m aisles, each with a coloured finished-parts box (A red, B light grey, C blue, D purple)
+- Central rack between the aisles, two pillars as static obstacles
+- Yellow pallet cart moving across the dock zone as a dynamic obstacle
+
 ## Requirements
 Ubuntu 24.04, ROS 2 Jazzy, Gazebo Harmonic
 
