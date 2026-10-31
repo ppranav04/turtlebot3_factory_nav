@@ -75,3 +75,18 @@ Terminal 2: Once RViz shows the map and Terminal 1 logs "Managed nodes are activ
 source /opt/ros/jazzy/setup.bash && source ~/factory_ws/install/setup.bash
 ros2 launch turtlebot3_factory_bringup workflow.launch.py
 ```
+
+## Challenges and fixes
+**Wheel odometry drifting by nearly 100 degrees.** The local costmap kept rotating against the map, and in one run AMCL lost the robot totally. I compared wheel odometry with Gazebo's ground-truth pose: three 360 degree spins in place lost 1, 97 and 1 degrees, so the wheels were slipping. My hand-written ground plane had no friction set, while the stock Gazebo ground plane uses mu 100 / mu2 50. With that friction the same test lost about 0.4 degrees in total, and over a full run odometry stayed within 6 cm of ground truth.
+
+**Ghost obstacle left behind by the moving cart.** After the cart left an aisle mouth, the global costmap kept a ghost blob there, so the planner treated an open aisle as blocked. The aisles are about 5 m long, longer than the lidar's 3.5 m range, so beams down them return "inf", and with `inf_is_valid: false` the costmap ignores them and never clears those cells. Setting `inf_is_valid: true` on all four scan sources fixed it.
+
+**Robot and moving cart colliding.** Nav2 sees where the cart is, not where it is going. I first made the robot react faster: global costmap 1 -> 5 Hz, replanning 1 -> 4 Hz, and a 0.2 m collision-monitor stop zone. The cart could still drive into a stopped robot, and one hit turned the robot ~55 degrees without its wheels moving, which corrupted odometry. The 0.2 m stop zone also froze the robot next to a rack corner and the storage rack. Final setup: the cart pauses when the robot is within 0.75 m (as a real powered cart with a safety scanner would), the stop zone is 0.15 m, and full runs complete without contact.
+
+## Next steps
+
+- Tune AMCL (odometry noise `alpha1-4`, `z_rand`) now that odometry is accurate, and measure it against Gazebo ground truth
+- Nearest-first or fullest-first task allocation instead of FIFO.
+- Multiple robots sharing the queue.
+- Physical pickup with Gazebo detachable joints.
+- Try the MPPI or Regulated Pure Pursuit controllers in the 1 m aisles.
