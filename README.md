@@ -13,6 +13,7 @@ on the storage rack in Gazebo.
 ## Demo
 [![Demo video](https://img.youtube.com/vi/DCC3VNYN0Us/maxresdefault.jpg)](https://youtu.be/DCC3VNYN0Us)
 
+Click to view demo.
 Gazebo and RViz. Watch in 1080p. Long drives are sped up and labelled in the video.
 ## World layout
 
