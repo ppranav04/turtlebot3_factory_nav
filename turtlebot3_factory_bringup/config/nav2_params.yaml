@@ -351,7 +351,7 @@ collision_monitor:
     polygons: ["PolygonStop", "PolygonSlow", "FootprintApproach"]
     PolygonStop:
       type: "circle"
-      radius: 0.2
+      radius: 0.15
       action_type: "stop"
       min_points: 4
       visualize: true
