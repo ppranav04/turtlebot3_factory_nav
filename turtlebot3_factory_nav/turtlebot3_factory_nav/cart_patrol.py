@@ -1,4 +1,5 @@
-"""Move the pallet cart back and forth across the storage zone with set_pose.
+"""
+Move the pallet cart back and forth across the dock zone with set_pose.
 
 The cart pauses while the robot is within a clearance distance, like a
 powered cart with its own safety scanner.
