@@ -19,7 +19,7 @@ def generate_launch_description():
     rviz_config = os.path.join(bringup_dir, 'rviz', 'factory.rviz')
 
     cart_sdf = os.path.join(bringup_dir, 'worlds', 'cart.sdf')
-    cart_x = 5.2
+    cart_x = 0.8
 
     world = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
